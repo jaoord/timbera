@@ -35,7 +35,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
                 <Image src="/images/logo.svg" alt="Timbera" width={179} height={41} />
               </div>
               <div className="w-full lg:w-8/12 px-2">
-                <Link href="/">home</Link> | <Link href="/producten">producten</Link> |{' '}
+                <Link href="/">home</Link>| <Link href="/producten">producten</Link>|{' '}
                 <Link href="/blog">blog</Link>
               </div>
             </div>

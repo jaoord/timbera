@@ -160,6 +160,8 @@ export interface Media {
  */
 export interface Post {
   id: number;
+  slug?: string | null;
+  featuredImage?: (number | null) | Media;
   title: string;
   content: {
     root: {
@@ -278,6 +280,8 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "posts_select".
  */
 export interface PostsSelect<T extends boolean = true> {
+  slug?: T;
+  featuredImage?: T;
   title?: T;
   content?: T;
   updatedAt?: T;

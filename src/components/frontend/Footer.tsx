@@ -18,7 +18,7 @@ export async function Footer() {
   const logo = footerData?.logo
 
   return (
-    <footer className="bg-accent text-accent-foreground p-8 mt-20">
+    <footer className="bg-accent text-accent-foreground p-8">
       <div className="container mx-auto">
         {isValidMedia(logo) && (
           <Image
