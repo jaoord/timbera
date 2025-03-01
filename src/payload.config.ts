@@ -19,6 +19,13 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
+    components: {
+      views: {
+        dashboard: {
+          Component: '@/components/Dashboard#Dashboard',
+        },
+      },
+    },
   },
   collections: [Users, Media],
   editor: lexicalEditor(),
