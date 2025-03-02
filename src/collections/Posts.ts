@@ -37,14 +37,14 @@ export const Posts: CollectionConfig = {
       },
     },
     {
-      name: 'featuredImage',
-      type: 'upload',
-      relationTo: 'media',
-    },
-    {
       name: 'title',
       type: 'text',
       required: true,
+    },
+    {
+      name: 'featuredImage',
+      type: 'upload',
+      relationTo: 'media',
     },
     {
       name: 'content',
