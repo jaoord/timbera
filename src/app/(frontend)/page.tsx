@@ -1,22 +1,40 @@
-import { headers as getHeaders } from 'next/headers.js'
-import Image from 'next/image'
+import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 import React from 'react'
 import { fileURLToPath } from 'url'
+import { Hero1 } from '@/components/frontend/Hero1'
 
 import config from '@/payload.config'
 import './styles.css'
 
 export default async function HomePage() {
-  const headers = await getHeaders()
   const payloadConfig = await config
   const payload = await getPayload({ config: payloadConfig })
 
+  const hero = await payload.find({
+    collection: 'hero',
+    depth: 1,
+    limit: 1,
+    sort: '-createdAt',
+  })
+
+  const heroData = hero.docs[0]
+
   return (
-    <div className="container mx-auto mt-8">
-      <div className="flex flex-wrap -mx-2">
-        <div className="w-full">
-          <h1 className="font-heading text-2xl font-bold">Een duurzame woning voor iedereen!</h1>
+    <div>
+      <div className="container mx-auto lg:mt-8">
+        <Hero1
+          heading={heroData.heading}
+          description={heroData.description}
+          image={{
+            src: heroData.image.url,
+            alt: 'test',
+          }}
+        />
+        <div className="flex flex-wrap my-4">
+          <div className="w-full">
+            <h1 className="font-heading text-2xl font-bold">Een duurzame woning voor iedereen!</h1>
+          </div>
         </div>
       </div>
     </div>

@@ -10,6 +10,7 @@ import sharp from 'sharp'
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
+import { Hero } from './collections/Hero'
 
 import { Footer } from './globals/Footer'
 
@@ -24,7 +25,7 @@ export default buildConfig({
     },
     components: {},
   },
-  collections: [Users, Media, Posts],
+  collections: [Users, Media, Posts, Hero],
   globals: [Footer],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

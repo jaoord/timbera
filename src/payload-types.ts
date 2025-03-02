@@ -69,6 +69,7 @@ export interface Config {
     users: User;
     media: Media;
     posts: Post;
+    hero: Hero;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
     'payload-migrations': PayloadMigration;
@@ -78,6 +79,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     posts: PostsSelect<false> | PostsSelect<true>;
+    hero: HeroSelect<false> | HeroSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
     'payload-migrations': PayloadMigrationsSelect<false> | PayloadMigrationsSelect<true>;
@@ -183,6 +185,28 @@ export interface Post {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero".
+ */
+export interface Hero {
+  id: number;
+  heading: string;
+  description: string;
+  buttons?: {
+    primary?: {
+      text?: string | null;
+      url?: string | null;
+    };
+    secondary?: {
+      text?: string | null;
+      url?: string | null;
+    };
+  };
+  image: number | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-locked-documents".
  */
 export interface PayloadLockedDocument {
@@ -199,6 +223,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'posts';
         value: number | Post;
+      } | null)
+    | ({
+        relationTo: 'hero';
+        value: number | Hero;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -284,6 +312,33 @@ export interface PostsSelect<T extends boolean = true> {
   title?: T;
   featuredImage?: T;
   content?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "hero_select".
+ */
+export interface HeroSelect<T extends boolean = true> {
+  heading?: T;
+  description?: T;
+  buttons?:
+    | T
+    | {
+        primary?:
+          | T
+          | {
+              text?: T;
+              url?: T;
+            };
+        secondary?:
+          | T
+          | {
+              text?: T;
+              url?: T;
+            };
+      };
+  image?: T;
   updatedAt?: T;
   createdAt?: T;
 }

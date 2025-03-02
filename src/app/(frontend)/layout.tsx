@@ -28,7 +28,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="nl" className={`${inter.variable} ${nunito.variable}`}>
       <body>
-        <header className="p-8">
+        <header className="p-4 lg:p-8">
           <div className="container mx-auto">
             <div className="flex flex-wrap -mx-2">
               <div className="w-full lg:w-4/12 px-2">
