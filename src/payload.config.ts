@@ -11,6 +11,7 @@ import { Users } from './collections/Users'
 import { Media } from './collections/Media'
 import { Posts } from './collections/Posts'
 import { Hero } from './collections/Hero'
+import { Products } from './collections/Products'
 
 import { Footer } from './globals/Footer'
 
@@ -25,7 +26,7 @@ export default buildConfig({
     },
     components: {},
   },
-  collections: [Users, Media, Posts, Hero],
+  collections: [Users, Media, Posts, Hero, Products],
   globals: [Footer],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || '',

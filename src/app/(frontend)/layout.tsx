@@ -27,7 +27,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
 
   return (
     <html lang="nl" className={`${inter.variable} ${nunito.variable}`}>
-      <body>
+      <body className="font-body">
         <header className="p-4 lg:p-8">
           <div className="container mx-auto">
             <div className="flex flex-wrap -mx-2">
@@ -36,7 +36,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
               </div>
               <div className="w-full lg:w-8/12 px-2">
                 <Link href="/">home</Link>| <Link href="/producten">producten</Link>|{' '}
-                <Link href="/blog">blog</Link>
+                <Link href="/inzichten">blog</Link>
               </div>
             </div>
           </div>

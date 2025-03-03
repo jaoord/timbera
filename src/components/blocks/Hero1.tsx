@@ -44,7 +44,9 @@ const Hero1 = ({
       <div className="container">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <div className="flex flex-col items-center text-center lg:items-start lg:text-left">
-            <h1 className="my-6 text-pretty text-2xl font-bold lg:text-4xl">{heading}</h1>
+            <h1 className="my-6 text-pretty text-2xl font-bold lg:text-4xl font-heading">
+              {heading}
+            </h1>
             <p className="mb-8 max-w-xl lg:text-xl text-muted">{description}</p>
             <div className="flex w-full flex-col justify-center gap-2 sm:flex-row lg:justify-start">
               {buttons.primary && (
